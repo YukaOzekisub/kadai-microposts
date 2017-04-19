@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
       return
     end
     
-    @microposts = current_user.microposts.order('created_at DESC').page(params[:page])
+    @microposts = current_user.feed_microposts.order('created_at DESC').page(params[:page])
     flash.now[:danger] = 'メッセージの投稿に失敗しました。'
     render 'toppages/index'
   end
