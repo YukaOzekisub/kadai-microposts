@@ -46,7 +46,7 @@ class User < ApplicationRecord
     favorite = self.favorite_microposts.find_by(favorite_micropost_id: favorite_micropost.id)
     favorite.destroy if favorite
   end
-
+  
   def favo?(favorite_micropost)
     self.favorite_microposts.include?(favorite_micropost)
   end
