@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverses_of_relationship, source: :user
   
-  has_many :favorites
-  has_many :favorite_microposts, through: :favorites, source: :micropost
+  has_many :favorites, class_name: 'Favorite', foreign_key: 'favorite_user_id'
+  has_many :favorite_microposts, through: :favorites, source: :favorite_micropost
   
   #フォロー
   def follow(other_user)
@@ -38,7 +38,7 @@ class User < ApplicationRecord
   #ファボ
   def favo(favorite_micropost)
     self
-    .favorite_microposts
+    .favorites
     .find_or_create_by(favorite_micropost_id: favorite_micropost.id)
   end
 
