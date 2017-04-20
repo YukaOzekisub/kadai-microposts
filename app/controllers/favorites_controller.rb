@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
     micropost = Micropost.find(params[:favorite_micropost_id])
     user.favo(micropost)
     flash[:success] = '投稿をお気に入りしました。'
-    redirect_to user
+    redirect_to micropost.user
   end
 
   def destroy
