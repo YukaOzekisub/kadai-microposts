@@ -8,6 +8,7 @@
 <% else %>
   <%= form_for(current_user.favorites.build) do |f| %>
     <%= hidden_field_tag :favorite_micropost_id, micropost.id %>
+    <%= hidden_field_tag :show_user_id, show_user_id %>
     <button type="submit" class="btn btn-default btn-xs">
       <span class="glyphicon glyphicon-star"></span>
     </button>
