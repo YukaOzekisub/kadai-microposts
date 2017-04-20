@@ -11,14 +11,13 @@
           <span class="text-muted">posted at 
             <%= micropost.created_at %>
           </span>
+          <% if current_user == micropost.user %>
+            <%= link_to "", micropost, method: :delete, data: { confirm: "本当に消しますか?" }, class: 'glyphicon glyphicon-trash' %>
+          <% end %>
         </div>
         <div>
           <p><%= micropost.content %></p>
         </div>
-        
-        <% if current_user == micropost.user %>
-          <%= link_to "", micropost, method: :delete, data: { confirm: "本当に消しますか?" }, class: 'glyphicon glyphicon-trash' %>
-        <% end %>
         <%= render 'favorites/favorite_button', micropost: micropost, show_user_id: @user.id %>
       </div>
     </li>
