@@ -5,7 +5,8 @@
     <%= render 'navbar',
     user: @user, count_followers: @count_followers,
     count_followings: @count_followings,
-    count_microposts: @count_microposts
+    count_microposts: @count_microposts,
+    count_favorites: @count_favorites
     %>
     <%= render 'users', users: @followers %>
   </div>

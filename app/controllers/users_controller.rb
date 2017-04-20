@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   def show
     set_icon
     @microposts = @user.microposts.order('created_at DESC').page(params[:page])
+    if current_user == @user
+      @microposts = @user.feed_microposts.order('created_at DESC').page(params[:page])
+    end
   end
 
   def new
