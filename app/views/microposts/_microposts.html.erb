@@ -17,7 +17,7 @@
         </div>
         
         <% if current_user == micropost.user %>
-          <%= link_to "Delete", micropost, method: :delete, data: { confirm: "本当に消しますか?" }, class: 'btn btn-danger btn-xs' %>
+          <%= link_to "", micropost, method: :delete, data: { confirm: "本当に消しますか?" }, class: 'glyphicon glyphicon-trash' %>
         <% end %>
         <%= render 'favorites/favorite_button', micropost: micropost %>
       </div>

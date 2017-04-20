@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   
   def favorite_microposts
     set_icon
-    @favorite_microposts = @user.favorite_microposts.page(params[:page])
+    @favorite_microposts = @user.favorite_microposts.order('created_at DESC').page(params[:page])
   end
   
   private
